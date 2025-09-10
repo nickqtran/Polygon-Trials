@@ -7,10 +7,10 @@ class Vector2 {
     }
 
     static zero = new Vector2(0, 0)
-    static left = new Vector2(-1, 0)
-    static right = new Vector2(1, 0)
-    static up = new Vector2(0, -1)
-    static down = new Vector2(0, 1)
+    static left = new Vector2(-3, 0)
+    static right = new Vector2(3, 0)
+    static up = new Vector2(0, -3)
+    static down = new Vector2(0, 3)
 
     plusEquals(other) {
         this.x += other.x

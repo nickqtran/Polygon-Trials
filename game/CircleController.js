@@ -1,6 +1,6 @@
 class CircleController extends Component {
     start() {
-        this.vertex = new Vector2(100, 100) // center of circle
+        this.vertex = new Vector2(125, 310) // center of circle
         this.radius = 15                    // radius of circle
         this.velocity = new Vector2(1, 1)
 
