@@ -4,6 +4,6 @@ class MainScene extends Scene{
         //Game-specific code
         //this.gameObjects.push(new TriangleGameObject())
         //this.gameObjects.push(new SquareGameObject())
-        // testing this line for laptop pull
+        this.gameObjects.push(new CircleGameObject())
     }
 }

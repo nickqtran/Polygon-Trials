@@ -5,25 +5,6 @@ class SquareController extends Component {
 
     }
     update() {
-        console.log(Input.keysDown)
-
-        let proposedChange = Vector2.zero
-
-        // Left
-        if(Input.keysDown.includes("ArrowLeft")) {
-            proposedChange = new Vector2.left
-        }
-        if(Input.keysDown.includes("ArrowRight")) {
-            proposedChange = new Vector2.right
-        }
-        if(Input.keysDown.includes("ArrowUp")) {
-            proposedChange = new Vector2.up
-        }
-        if(Input.keysDown.includes("ArrowDown")) {
-            proposedChange = new Vector2.down
-        }
-
-        this.vertex.plusEquals(proposedChange)
 
     //  this.vertex.plusEquals(this.velocity)
 

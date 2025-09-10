@@ -21,6 +21,8 @@
     <script src="./game/TriangleController.js"></script>
     <script src="./game/SquareController.js"></script>
     <script src="./game/SquareGameObject.js"></script>
+    <script src="./game/CircleController.js"></script>
+    <script src="./game/CircleGameObject.js"></script>
     <script>
 
         //Engine-specific code
@@ -53,16 +55,18 @@
         //Engine-specific
         function draw() {
             //Game-specific
+            canvas.width = 600
+            canvas.height = 400
             ctx.fillStyle = "green"
             ctx.beginPath()
-            ctx.rect(0, 120, canvas.width, canvas.height)
+            ctx.rect(0, 335, canvas.width, canvas.height)
             ctx.fill()
 
             currentScene.draw(ctx)
             
             ctx.fillStyle = "grey"
             ctx.beginPath()
-            ctx.rect(0, 0, canvas.width, 120)
+            ctx.rect(0, 0, canvas.width, 335)
             ctx.fill()
 
             currentScene.draw(ctx)
