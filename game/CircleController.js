@@ -1,6 +1,7 @@
 class CircleController extends Component {
     start() {
-        this.vertex = new Vector2(100, 20)
+        this.vertex = new Vector2(100, 100) // center of circle
+        this.radius = 15                    // radius of circle
         this.velocity = new Vector2(1, 1)
 
     }
@@ -10,7 +11,7 @@ class CircleController extends Component {
 
         let proposedChange = new Vector2(0,0) 
 
-        // Left
+        // Movement Inputs
         if(Input.keysDown.includes("ArrowLeft")) {
             proposedChange.plusEquals(Vector2.left)
         }
@@ -24,10 +25,15 @@ class CircleController extends Component {
             proposedChange.plusEquals(Vector2.down)
         }
 
-        this.vertex.plusEquals(proposedChange)
+        // Make circle not escape canvas boundaries    
+        if (this.vertex.x - this.radius + proposedChange.x < 0 - 15) proposedChange.x = 0
+        if (this.vertex.x + this.radius + proposedChange.x + 15 > canvas.width) proposedChange.x = 0
+        if (this.vertex.y - this.radius + proposedChange.y < 0 - 15) proposedChange.y = 0
+        if (this.vertex.y + this.radius + proposedChange.y + 15 > canvas.height) proposedChange.y = 0
 
-        // Make circle not escape canvas boundaries
-        
+        // Executes movement inputs
+        this.vertex.plusEquals(proposedChange)
+   
     }
 
     draw(ctx) {
