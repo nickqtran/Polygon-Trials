@@ -6,11 +6,11 @@ class Vector2 {
         this.y = y
     }
 
-    static zero = new Vector2(0, 0)
-    static left = new Vector2(-3, 0)
-    static right = new Vector2(3, 0)
-    static up = new Vector2(0, -3)
-    static down = new Vector2(0, 3)
+    static get zero() {return new Vector2(0, 0)}
+    static get left() {return new Vector2(-1, 0)}
+    static get right() {return new Vector2(1, 0)}
+    static get up() {return new Vector2(0, -1)}
+    static get down() {return new Vector2(0, 1)}
 
     plusEquals(other) {
         this.x += other.x
