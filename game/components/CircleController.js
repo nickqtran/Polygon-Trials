@@ -9,7 +9,7 @@ class CircleController extends Component {
     update() {
         console.log(Input.keysDown)
 
-        let proposedChange = new Vector2(0,0) 
+        let proposedChange = Vector2.zero
 
         // Movement Inputs
         if(Input.keysDown.includes("ArrowLeft")) {

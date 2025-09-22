@@ -15,7 +15,7 @@ class TriangleController extends Component {
         }
     }
     draw(ctx) {
-        ctx.fillStyle = "white"
+        ctx.fillStyle = "yellow"
 
         ctx.beginPath()
         ctx.lineTo(this.vertex.x, this.vertex.y)

@@ -15,4 +15,9 @@ class Scene {
             gameObject.draw(ctx)
         }
     }
+    instantiate(gameObject, position) {
+        this.gameObjects.push(gameObject)
+        if(position)
+            gameObject.transform.position = position
+    }
 }
