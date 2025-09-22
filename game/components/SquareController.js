@@ -1,28 +1,25 @@
 class SquareController extends Component {
     start() {
-        this.vertex = new Vector2(100, 20)
-        this.velocity = new Vector2(1, 1)
+        this.vertex = new Vector2(200, 0)
+        this.velocity = new Vector2(0, 2)
 
     }
     update() {
 
-    //  this.vertex.plusEquals(this.velocity)
+        this.vertex.plusEquals(this.velocity)
 
-    //  if (this.vertex.x > canvas.width-25 || this.vertex.x < 0) {
-    //      this.velocity.x *= -1
-    //  }
-    //  if (this.vertex.y > canvas.height-25 || this.vertex.y < 0) {
-    //      this.velocity.y *= -1
-    //  }
+  //    if(this.transform.position.y > +10) {
+  //        this.gameObject.destroy()
+  //    }
     }
     draw(ctx) {
         ctx.fillStyle = "red"
 
         ctx.beginPath()
         ctx.lineTo(this.vertex.x, this.vertex.y)
-        ctx.lineTo(this.vertex.x + 25, this.vertex.y + 0)
-        ctx.lineTo(this.vertex.x + 25, this.vertex.y + 25)
-        ctx.lineTo(this.vertex.x + 0, this.vertex.y + 25)
+        ctx.lineTo(this.vertex.x + 35, this.vertex.y + 0)
+        ctx.lineTo(this.vertex.x + 35, this.vertex.y + 35)
+        ctx.lineTo(this.vertex.x + 0, this.vertex.y + 35)
         ctx.fill()
     }
 }
