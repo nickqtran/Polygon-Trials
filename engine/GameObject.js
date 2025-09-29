@@ -32,4 +32,7 @@ class GameObject {
     getComponent(type) {
         return this.components.find(go => go instanceof type)
     }
+    getGameObject() {
+        return this.gameObject.filter()
+    }
 }
