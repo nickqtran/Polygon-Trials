@@ -29,4 +29,7 @@ class GameObject {
     destroy() {
         this.markForDelete = true
     }
+    getComponent(type) {
+        return this.components.find(go => go instanceof type)
+    }
 }
