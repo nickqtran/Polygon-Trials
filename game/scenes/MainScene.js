@@ -1,9 +1,11 @@
-class MainScene extends Scene{
-    constructor(){
-        super()
-        //Game-specific code
-        //this.gameObjects.push(new TriangleGameObject())
-        this.gameObjects.push(new SquareGameObject())
-        this.gameObjects.push(new CircleGameObject())
+class MainScene extends Scene {
+    constructor() {
+        super();
+
+        this.gameObjects.push(new CircleGameObject());
+
+        let asteroidManager = new GameObject();
+        asteroidManager.addComponent(new AsteroidController());
+        this.gameObjects.push(asteroidManager);
     }
 }

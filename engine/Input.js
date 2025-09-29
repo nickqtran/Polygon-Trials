@@ -10,6 +10,3 @@ class Input {
         Input.keysDown = Input.keysDown.filter(k => k != event.code)
     }
 }
-
-    //Input.js:5 Uncaught TypeError: Input.keydown.includes is not a function
-    //at keydown (Input.js:5:27)

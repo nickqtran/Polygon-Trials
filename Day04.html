@@ -25,10 +25,12 @@
     <script src="./game/components/TriangleController.js"></script>
     <script src="./game/components/SquareController.js"></script>
     <script src="./game/components/CircleController.js"></script>
+    <script src="./game/components/AsteroidController.js"></script>
 
     <script src="./game/prefabs/TriangleGameObject.js"></script>
     <script src="./game/prefabs/SquareGameObject.js"></script>
     <script src="./game/prefabs/CircleGameObject.js"></script>
+    <script src="./game/prefabs/AsteroidGameObject.js"></script>
     <script>
 
         //Engine-specific code
@@ -60,24 +62,20 @@
 
         //Engine-specific
         function draw() {
-            //Game-specific
             canvas.width = 600
             canvas.height = 400
+
+            // Draw background
             ctx.fillStyle = "green"
-            ctx.beginPath()
-            ctx.rect(0, 335, canvas.width, canvas.height)
-            ctx.fill()
+            ctx.fillRect(0, 335, canvas.width, canvas.height)
 
-            currentScene.draw(ctx)
-            
-            ctx.fillStyle = "grey"
-            ctx.beginPath()
-            ctx.rect(0, 0, canvas.width, 335)
-            ctx.fill()
+            ctx.fillStyle = "black"
+            ctx.fillRect(0, 0, canvas.width, 335)
 
+            //Draw scene
             currentScene.draw(ctx)
-            
-        }
+        }   
+
 
         //Engine-specific
         requestAnimationFrame(start)
