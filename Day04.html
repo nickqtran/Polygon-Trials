@@ -1,13 +1,18 @@
 <!doctype html>
 <html>
-
 <head>
     <title>Day 04 Game</title>
-
+    <style>
+        * {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
     <canvas id="canv"></canvas>
+    
     <!-- Engine-specific Code -->
     <script src="./engine/Vector2.js"></script>
     <script src="./engine/Scene.js"></script>
@@ -15,10 +20,11 @@
     <script src="./engine/Component.js"></script>
     <script src="./engine/Input.js"></script>
     <script src="./engine/Time.js"></script>
+    <script src="./engine/Engine.js"></script> 
 
+    <script src="./engine/components/Collider.js"></script>
     <script src="./engine/components/Polygon.js"></script>
     <script src="./engine/components/Transform.js"></script>
-    
 
     <!-- Game-specific Code -->
     <script src="./game/scenes/MainScene.js"></script>
@@ -26,63 +32,18 @@
     <script src="./game/components/SquareController.js"></script>
     <script src="./game/components/CircleController.js"></script>
     <script src="./game/components/AsteroidController.js"></script>
+    <script src="./game/components/LaserController.js"></script>
 
     <script src="./game/prefabs/TriangleGameObject.js"></script>
     <script src="./game/prefabs/SquareGameObject.js"></script>
     <script src="./game/prefabs/CircleGameObject.js"></script>
     <script src="./game/prefabs/AsteroidGameObject.js"></script>
+    <script src="./game/prefabs/LaserGameObject.js"></script>
+    
     <script>
-
-        //Engine-specific code
-        const canvas = document.querySelector("#canv")
-        const ctx = canvas.getContext("2d")
-
-        const currentScene = new MainScene()
-
-        //Engine-specific
-        function start() {
-            //Game-specific
-            currentScene.start()
-            gameLoop()
-        }
-
-        //Engine-specific code
-        function gameLoop() {
-            update()
-            draw()
-            requestAnimationFrame(gameLoop)
-        }
-
-
-
-        //Engine-specific
-        function update() {
-            currentScene.update()            
-        }
-
-        //Engine-specific
-        function draw() {
-            canvas.width = 600
-            canvas.height = 400
-
-            // Draw background
-            ctx.fillStyle = "green"
-            ctx.fillRect(0, 335, canvas.width, canvas.height)
-
-            ctx.fillStyle = "black"
-            ctx.fillRect(0, 0, canvas.width, 335)
-
-            //Draw scene
-            currentScene.draw(ctx)
-        }   
-
-
-        //Engine-specific
-        requestAnimationFrame(start)
-        addEventListener("keydown", Input.keydown) // flexible function for input, listens to anything keydown and passes it to Input.keydown
-        addEventListener("keyup", Input.keyup)
-
+        // Engine startup
+        Engine.currentScene = new MainScene()
+        Engine.start()
     </script>
 </body>
-
 </html>

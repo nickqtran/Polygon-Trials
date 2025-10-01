@@ -9,4 +9,5 @@ class Input {
     static keyup(event) {
         Input.keysDown = Input.keysDown.filter(k => k != event.code)
     }
+
 }

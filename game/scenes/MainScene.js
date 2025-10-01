@@ -1,11 +1,12 @@
 class MainScene extends Scene {
     constructor() {
-        super();
+        super()
+        this.gameObjects = []
 
-        this.gameObjects.push(new TriangleGameObject());
+        this.gameObjects.push(new TriangleGameObject())
 
-        let asteroidManager = new GameObject();
-        asteroidManager.addComponent(new AsteroidController());
-        this.gameObjects.push(asteroidManager);
+        const asteroidManager = new GameObject()
+        asteroidManager.addComponent(new AsteroidController())
+        this.gameObjects.push(asteroidManager)
     }
 }

@@ -32,10 +32,10 @@ class AsteroidController extends Component {
             asteroid.transform.position.y += asteroid.velocity.y * asteroid.speed
 
             // Screen wrapping
-            if (asteroid.transform.position.x < 0) asteroid.transform.position.x = canvas.width
-            if (asteroid.transform.position.x > canvas.width) asteroid.transform.position.x = 0
-            if (asteroid.transform.position.y < 0) asteroid.transform.position.y = canvas.height
-            if (asteroid.transform.position.y > canvas.height) asteroid.transform.position.y = 0
+            if (asteroid.transform.position.x < 0) asteroid.transform.position.x = Engine.canvas.width
+            if (asteroid.transform.position.x > Engine.canvas.width) asteroid.transform.position.x = 0
+            if (asteroid.transform.position.y < 0) asteroid.transform.position.y = Engine.canvas.height
+            if (asteroid.transform.position.y > Engine.canvas.height) asteroid.transform.position.y = 0
         }
     }
 
@@ -57,10 +57,10 @@ class AsteroidController extends Component {
     spawnAsteroid() {
         let x, y;
         let edge = Math.floor(Math.random() * 4);
-        if (edge == 0) { x = Math.random() * canvas.width; y = 0; }
-        else if (edge == 1) { x = Math.random() * canvas.width; y = canvas.height; }
-        else if (edge == 2) { x = 0; y = Math.random() * canvas.height; }
-        else { x = canvas.width; y = Math.random() * canvas.height; }
+        if (edge == 0) { x = Math.random() * Engine.canvas.width; y = 0; }
+        else if (edge == 1) { x = Math.random() * Engine.canvas.width; y = Engine.canvas.height; }
+        else if (edge == 2) { x = 0; y = Math.random() * Engine.canvas.height; }
+        else { x = Engine.canvas.width; y = Math.random() * Engine.canvas.height; }
 
         let asteroid = {
             transform: { position: new Vector2(x, y) },
