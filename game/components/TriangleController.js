@@ -39,11 +39,11 @@ class TriangleController extends Component {
             this.vertex.x + Math.cos(this.angle) * 20,
             this.vertex.y + Math.sin(this.angle) * 20
         );
-
+    
         const laser = new LaserGameObject(tip, this.angle);
-        Engine.currentScene.gameObjects.push(laser);
-        laser.start(); // IMPORTANT: initialize components
+        Engine.addGameObject(laser);  // automatically starts in next update}
     }
+
 
     draw(ctx) {
         const size = 20;

@@ -1,22 +1,20 @@
 class LaserGameObject extends GameObject {
     constructor(startPos, direction) {
-        super();
-
-        // Transform for position
-        this.addComponent(new Transform(), { position: startPos.clone(), scale: new Vector2(5, 5) });
-
-        // Polygon for laser shape
+        super()
+        
+        this.addComponent(new Transform(), {position: startPos})
         this.addComponent(new Polygon(), {
             fillStyle: "red",
             points: [
-                new Vector2(-1, -1),
-                new Vector2(-1, 1),
-                new Vector2(1, 1),
-                new Vector2(1, -1)
+                new Vector2(-2, -2),
+                new Vector2(-2, 2),
+                new Vector2(2, 2),
+                new Vector2(2, -2)
             ]
-        });
+        })
 
-        // LaserController with direction
-        this.addComponent(new LaserController(), { direction: direction });
+        const laser = new LaserController()
+        laser.direction = direction
+        this.addComponent(laser)
     }
 }
