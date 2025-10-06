@@ -3,7 +3,8 @@ class MainScene extends Scene {
         super()
         this.gameObjects = []
 
-        this.gameObjects.push(new TriangleGameObject())
+        //this.gameObjects.push(new TriangleGameObject())
+        this.instantiate(new TriangleGameObject())
 
         const asteroidManager = new GameObject()
         asteroidManager.addComponent(new AsteroidController())

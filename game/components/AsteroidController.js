@@ -56,17 +56,14 @@ class AsteroidController extends Component {
 
     spawnAsteroid() {
         let x, y;
-        let edge = Math.floor(Math.random() * 4);
+        let edge = (Math.random() * 4);
         if (edge == 0) { x = Math.random() * Engine.canvas.width; y = 0; }
         else if (edge == 1) { x = Math.random() * Engine.canvas.width; y = Engine.canvas.height; }
         else if (edge == 2) { x = 0; y = Math.random() * Engine.canvas.height; }
         else { x = Engine.canvas.width; y = Math.random() * Engine.canvas.height; }
 
         let asteroid = {
-            transform: { position: new Vector2(x, y) },
-            size: 20 + Math.random() * 20,
-            speed: 1 + Math.random() * 1.5,
-            velocity: new Vector2((Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2)
+            transform: { position: new Vector2(x, y) }, size: 20 + Math.random() * 20, speed: 1 + Math.random() * 1.5, velocity: new Vector2((Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2)
         };
 
         this.asteroids.push(asteroid);

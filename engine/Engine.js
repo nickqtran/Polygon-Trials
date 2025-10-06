@@ -44,6 +44,6 @@ class Engine {
 
     static addGameObject(go) {
         Engine.currentScene.gameObjects.push(go)
-        Engine.pendingStart.push(go)  // mark it for start in next update
+        Engine.pendingStart.push(go) 
     }
 }

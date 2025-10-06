@@ -1,7 +1,11 @@
 class GameObject {
     components = []
-    constructor() {
+    hasStarted = false
+    markForDelete = false
+    name = "[NO NAME]"
+    constructor(name) {
         this.addComponent(new Transform())
+        this.name = name
     }
     start() {
         for (const component of this.components) {
@@ -9,6 +13,10 @@ class GameObject {
         }
     }
     update() {
+        if(!this.hasStarted){
+            this.hasStarted = true
+            this.start()
+        }
         for (const component of this.components) {
             component.update()
         }
