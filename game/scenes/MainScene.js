@@ -11,3 +11,9 @@ class MainScene extends Scene {
         this.gameObjects.push(asteroidManager)
     }
 }
+
+
+// TO DO LIST:
+// Make collision feature (if asteroid collides with spaceship, reset game | if laser collides with asteroid, destroy asteroid)
+// Make score feature (if laser destroys asteroid, score goes up 1)
+// Make random "coins" randomly spawn in for extra points 

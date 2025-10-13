@@ -8,6 +8,7 @@ class Engine {
         addEventListener("keydown", Input.keydown)
         addEventListener("keyup", Input.keyup)
 
+
         Engine.currentScene.start()
         Engine.gameLoop()
     }

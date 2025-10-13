@@ -1,6 +1,6 @@
 class SquareGameObject extends GameObject{
     constructor(){
-        super()
+        super("Square Game Object")
         this.components.push(new SquareController())
     }
 }
