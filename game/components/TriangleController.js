@@ -2,28 +2,50 @@ class TriangleController extends Component {
     start() {
         this.vertex = new Vector2(275, 250);
         this.angle = 0;
-        this.velocity = new Vector2(1,1)
+        this.moveSpeed = 3;
+        this.rotationSpeed = 0.1;
 
+        this.fireCooldown = 0.25; // how often lasers spawn (seconds)
+        this.fireTimer = 0;
     }
 
     update() {
-        const rotationSpeed = 0.1;
-        const moveSpeed = 3;
+        this.fireTimer -= Time.deltaTime;
 
-        // Rotation
-        if (Input.keysDown.includes("ArrowLeft")) this.angle -= rotationSpeed;
-        if (Input.keysDown.includes("ArrowRight")) this.angle += rotationSpeed;
+        // Constant rotation (optional, remove if unwanted)
+        if (Input.keysDown.includes("ArrowLeft")) this.angle -= this.rotationSpeed;
+        if (Input.keysDown.includes("ArrowRight")) this.angle += this.rotationSpeed;
 
-        // Movement
+        // Movement (still controllable)
         if (Input.keysDown.includes("ArrowUp")) {
-            this.vertex.x += Math.cos(this.angle) * moveSpeed;
-            this.vertex.y += Math.sin(this.angle) * moveSpeed;
+            this.vertex.x += Math.cos(this.angle) * this.moveSpeed;
+            this.vertex.y += Math.sin(this.angle) * this.moveSpeed;
         }
         if (Input.keysDown.includes("ArrowDown")) {
-            this.vertex.x -= Math.cos(this.angle) * moveSpeed;
-            this.vertex.y -= Math.sin(this.angle) * moveSpeed;
+            this.vertex.x -= Math.cos(this.angle) * this.moveSpeed;
+            this.vertex.y -= Math.sin(this.angle) * this.moveSpeed;
         }
 
+        // Auto-fire every few frames
+        if (this.fireTimer <= 0) {
+            this.fireTimer = this.fireCooldown;
+            this.shootLaser();
+        }
+    }
+
+    shootLaser() {
+        const laser = new LaserGameObject();
+
+        // Position laser at front tip of triangle
+        const size = 20;
+        const frontX = this.vertex.x + Math.cos(this.angle) * size;
+        const frontY = this.vertex.y + Math.sin(this.angle) * size;
+
+        laser.transform.position = new Vector2(frontX, frontY);
+        laser.transform.rotation = this.angle;
+
+        // Add to scene
+        Engine.currentScene.instantiate(laser);
     }
 
     draw(ctx) {

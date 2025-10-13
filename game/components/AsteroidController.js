@@ -53,7 +53,7 @@ class AsteroidController extends Component {
             ctx.restore()
         }
     }
-
+//
     spawnAsteroid() {
         let x, y;
         let edge = (Math.random() * 4);
