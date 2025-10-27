@@ -14,6 +14,7 @@ class Engine {
     }
 
     static gameLoop() {
+        SceneManager.update()
         Engine.update()
         Engine.draw()
         requestAnimationFrame(Engine.gameLoop)
@@ -34,11 +35,11 @@ class Engine {
         Engine.canvas.width = 600
         Engine.canvas.height = 400
 
-        Engine.ctx.fillStyle = "green"
-        Engine.ctx.fillRect(0, 335, Engine.canvas.width, Engine.canvas.height)
+        //Engine.ctx.fillStyle = "green"
+        //Engine.ctx.fillRect(0, 335, Engine.canvas.width, Engine.canvas.height)
 
         Engine.ctx.fillStyle = "black"
-        Engine.ctx.fillRect(0, 0, Engine.canvas.width, 335)
+        Engine.ctx.fillRect(0, 0, Engine.canvas.width, Engine.canvas.height) // height was 355
 
         Engine.currentScene.draw(Engine.ctx)
     }
