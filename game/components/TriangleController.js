@@ -26,15 +26,13 @@ class TriangleController extends Component {
             this.vertex.y -= Math.sin(this.angle) * this.moveSpeed
         }
 
-        //Auto-fire every few frames
-        if (this.fireTimer <= 0) {
-            this.fireTimer = this.fireCooldown
-            this.shootLaser()
+        // Shoot Laser if Z is pressed
+        if (Input.keysDown.includes("KeyZ")) {
+            if (this.fireTimer <= 0) {
+                this.fireTimer = this.fireCooldown
+                this.shootLaser()
+            }
         }
-
-        //if (Input.keysDown.includes("z")) {
-        //    this.shootLaser()
-        //}
     }
 
     shootLaser() {

@@ -2,6 +2,7 @@ class Input {
     static keysDown = []
 
     static keydown(event) {
+        console.log(event.code)
         if(!Input.keysDown.includes(event.code))
             Input.keysDown.push(event.code)
     }
