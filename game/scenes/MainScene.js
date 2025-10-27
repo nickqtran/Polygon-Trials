@@ -15,5 +15,6 @@ class MainScene extends Scene {
 
 // TO DO LIST:
 // Make collision feature (if asteroid collides with spaceship, reset game | if laser collides with asteroid, destroy asteroid)
+// Make so player has to hit space to fire lasers rather than automatically shooting
 // Make score feature (if laser destroys asteroid, score goes up 1)
 // Make random "coins" randomly spawn in for extra points 
