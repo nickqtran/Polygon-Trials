@@ -1,6 +1,6 @@
 class LaserController extends Component {
     start() {
-        this.speed = 400 // Laser speed
+        this.speed = 620 // Laser speed
     }
 
     update() {

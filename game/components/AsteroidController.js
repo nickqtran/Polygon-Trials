@@ -57,6 +57,9 @@ class AsteroidController extends Component {
 
                     // Destroy laser
                     laser.destroy()
+
+                    // Add to score
+
                     break
                 }
             }

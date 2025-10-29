@@ -5,6 +5,7 @@ class MainScene extends Scene {
 
         //this.gameObjects.push(new TriangleGameObject())
         this.instantiate(new TriangleGameObject())
+        this.scoreObject = this.instantiate(new ScoreGameObject(), new Vector2(100, 30))
 
         const asteroidManager = new GameObject()
         asteroidManager.addComponent(new AsteroidController())
