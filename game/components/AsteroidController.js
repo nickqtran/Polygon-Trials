@@ -59,7 +59,11 @@ class AsteroidController extends Component {
                     laser.destroy()
 
                     // Add to score
-
+                    const scoreObject = Engine.currentScene.gameObjects.find(obj => obj.name === "Score Game Object")
+                    if (scoreObject) {
+                        const scoreComponent = scoreObject.getComponent(ScoreController)
+                        scoreComponent.addPoint(1) // Add 1 point for each asteroid destroyed
+                    }
                     break
                 }
             }
