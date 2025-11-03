@@ -51,7 +51,7 @@ class AsteroidController extends Component {
                 const dy = asteroid.transform.position.y - laser.transform.position.y
                 const distance = Math.sqrt(dx * dx + dy * dy)
 
-                if (distance < asteroid.size + 3) { // 3 = small laser hit radius
+                if (distance < asteroid.size + 8) { // 8 = small laser hit radius
                     // Destroy asteroid
                     this.asteroids.splice(i, 1)
 
@@ -68,6 +68,7 @@ class AsteroidController extends Component {
                 }
             }
         }
+        // Collision Detection (Spaceship and Asteroid)
     }
 
     draw(ctx) {
