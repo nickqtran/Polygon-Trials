@@ -10,12 +10,15 @@ class MainScene extends Scene {
         const asteroidManager = new GameObject()
         asteroidManager.addComponent(new AsteroidController())
         this.gameObjects.push(asteroidManager)
+
+        // Coin Manager
+        const coinManager = new GameObject()
+        coinManager.addComponent(new CoinController())
+        this.gameObjects.push(coinManager)        
     }
 }
 
 
 // TO DO LIST:
-// Make collision feature (if asteroid collides with spaceship, reset game | if laser collides with asteroid, destroy asteroid)
-// Make so player has to hit space to fire lasers rather than automatically shooting
-// Make score feature (if laser destroys asteroid, score goes up 1)
-// Make random "coins" randomly spawn in for extra points 
+// Make collision feature (if asteroid collides with spaceship, reset game)
+// Make random "coins" randomly spawn in for extra points and disappear on a timer (create new CoinGameObject and CoinController)
