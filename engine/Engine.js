@@ -1,7 +1,9 @@
 class Engine {
     static pendingStart = [];
+    static layers = ["", "UI"]
 
     static start() {
+        //Engine.layers.push(...gameProperties.layers)
         Engine.canvas = document.querySelector("#canv")
         Engine.ctx = Engine.canvas.getContext("2d")
 

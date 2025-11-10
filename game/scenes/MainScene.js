@@ -19,6 +19,7 @@ class MainScene extends Scene {
 }
 
 
+
 // TO DO LIST:
 // Make collision feature (if asteroid collides with spaceship, reset game)
 // Make random "coins" randomly spawn in for extra points and disappear on a timer (create new CoinGameObject and CoinController)
