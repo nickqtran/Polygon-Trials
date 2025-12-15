@@ -3,7 +3,7 @@ class AsteroidController extends Component {
         this.asteroids = []
         this.cooldown = 0
 
-        this.spawnRate = 5 * 60 // 5 seconds at 60fps
+        this.spawnRate = 8 * 60 // 8 seconds at 60fps
         this.spawnCount = 1     // how many to spawn each cycle
         this.timeElapsed = 0    // track total frames
     }
