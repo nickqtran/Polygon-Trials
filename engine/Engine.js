@@ -46,7 +46,19 @@ class Engine {
         Engine.ctx.fillStyle = "black"
         Engine.ctx.fillRect(0, 0, Engine.canvas.width, Engine.canvas.height) 
 
-        SceneManager.getActiveScene().draw(Engine.ctx)
+        const scene = SceneManager.getActiveScene()
+
+        if (!scene) return
+        for (const go of scene.gameObjects) {
+            if (go.draw) go.draw(Engine.ctx)
+        }   
+        
+        // Draw Layers
+        //const gos = scene.gameObjects.filter(go => go.layer === layer)
+        //for (const go of gos) {
+        //    if (go.draw) go.draw(Engine.ctx)
+        //}
+
     }
 
     static addGameObject(go) {

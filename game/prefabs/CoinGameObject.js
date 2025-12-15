@@ -5,5 +5,7 @@ class CoinGameObject extends GameObject {
         this.addComponent(new Collider())
         this.addComponent(new CoinBehavior())
         this.transform.scale = new Vector2(4, 4)
+        this.layer = ""
+        this.collisionlayer = "Coin"
     }
 }

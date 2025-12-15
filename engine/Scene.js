@@ -43,11 +43,17 @@ class Scene {
         this.gameObjects = this.gameObjects.filter(go => !go.markForDelete)
     }
 
-    draw(ctx) {
-        for (const gameObject of this.gameObjects) {
-            gameObject.draw(ctx)
+draw(ctx) {
+    // Draw game objects by layer
+    for (let layer of Engine.layers) {
+        for (let go of this.gameObjects) {
+            if (go.layer === layer) {
+                go.draw(ctx)
+            }
         }
     }
+}
+
     instantiate(gameObject, position) {
         this.gameObjects.push(gameObject)
         if(position)

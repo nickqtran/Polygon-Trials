@@ -1,5 +1,8 @@
 class MainScene extends Scene {
     start() {
+        // Starfield
+        this.instantiate(new StarsGameObject())
+        
         // Spaceship
         this.instantiate(new TriangleGameObject())
 

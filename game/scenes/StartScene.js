@@ -5,6 +5,8 @@ class StartScene extends Scene {
             StartScene.highScoreGO.transform.position = new Vector2(200, 100);
         }
 
+        // Instantiate starfield
+        this.instantiate(new StarsGameObject())
         // Instantiate High Score
         this.instantiate(StartScene.highScoreGO);
 
@@ -14,7 +16,7 @@ class StartScene extends Scene {
         startButton.addComponent(new Text());
         const textComp = startButton.getComponent(Text);
         textComp.text = "PLAY";
-        textComp.fillStyle = "white";
+        textComp.fillStyle = "red";
 
         // load MainScene
         startButton.addComponent(new ButtonComponent(() => {

@@ -3,5 +3,6 @@ class ScoreGameObject extends GameObject{
         super("Score Game Object")
         this.addComponent(new Text())
         this.addComponent(new ScoreController())
+        this.layer = "UI"
     }
 }

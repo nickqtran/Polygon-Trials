@@ -76,7 +76,6 @@ class AsteroidController extends Component {
             const currentScore = scoreObject.getComponent(ScoreController).score
             highScoreObject.getComponent(HighscoreController).checkHighScore(currentScore)
         }
-        
         // Spaceship collision
         const spaceship = activeScene.gameObjects.find(obj => obj.name === "Spaceship Game Object")
         if (spaceship) {
@@ -141,10 +140,7 @@ class AsteroidController extends Component {
             transform: { position: new Vector2(x, y) },
             size: 20 + Math.random() * 20,
             speed: 1 + Math.random() * 1.5,
-            velocity: new Vector2(
-                (Math.random() - 0.5) * 2,
-                (Math.random() - 0.5) * 2
-            )
+            velocity: new Vector2((Math.random() - 0.5) * 2,(Math.random() - 0.5) * 2),
         }
 
         this.asteroids.push(asteroid)

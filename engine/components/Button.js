@@ -4,6 +4,10 @@ class ButtonComponent extends Component {
         this.onClick = onClick
     }
 
+    start() {
+        this.gameObject.layer = "UI"
+    }
+
     update() {
         const mouse = Input.mouse
         const pos = this.gameObject.transform.position
