@@ -1,29 +1,30 @@
 class TriangleController extends Component {
     start() {
-        this.vertex = new Vector2(275, 250)
+        this.gameObject.transform.position = new Vector2(275, 250)
         this.angle = 0
-        this.moveSpeed = 3
-        this.rotationSpeed = 0.1
+        this.moveSpeed = 260 // pixels a second
+        this.rotationSpeed = 8
 
         this.fireCooldown = 0.25 // how often lasers spawn (seconds)
         this.fireTimer = 0
     }
 
     update() {
-        this.fireTimer -= Time.deltaTime
+        const dt = Time.deltaTime
+        this.fireTimer -= dt
 
         // Rotation
-        if (Input.keysDown.includes("ArrowLeft")) this.angle -= this.rotationSpeed
-        if (Input.keysDown.includes("ArrowRight")) this.angle += this.rotationSpeed
+        if (Input.keysDown.includes("ArrowLeft")) this.angle -= this.rotationSpeed * dt
+        if (Input.keysDown.includes("ArrowRight")) this.angle += this.rotationSpeed * dt
 
         // Movement 
         if (Input.keysDown.includes("ArrowUp")) {
-            this.vertex.x += Math.cos(this.angle) * this.moveSpeed
-            this.vertex.y += Math.sin(this.angle) * this.moveSpeed
+            this.gameObject.transform.position.x += Math.cos(this.angle) * this.moveSpeed * dt
+            this.gameObject.transform.position.y += Math.sin(this.angle) * this.moveSpeed * dt
         }
         if (Input.keysDown.includes("ArrowDown")) {
-            this.vertex.x -= Math.cos(this.angle) * this.moveSpeed
-            this.vertex.y -= Math.sin(this.angle) * this.moveSpeed
+            this.gameObject.transform.position.x -= Math.cos(this.angle) * this.moveSpeed * dt
+            this.gameObject.transform.position.y -= Math.sin(this.angle) * this.moveSpeed * dt
         }
 
         // Shoot Laser if Z is pressed
@@ -40,8 +41,9 @@ class TriangleController extends Component {
 
         // Position laser at front of the triangle
         const size = 20
-        const frontX = this.vertex.x + Math.cos(this.angle) * size
-        const frontY = this.vertex.y + Math.sin(this.angle) * size
+        const pos = this.gameObject.transform.position
+        const frontX = pos.x + Math.cos(this.angle) * size
+        const frontY = pos.y + Math.sin(this.angle) * size
 
         laser.transform.position = new Vector2(frontX, frontY)
         laser.transform.rotation = this.angle
@@ -51,17 +53,18 @@ class TriangleController extends Component {
     }
 
     draw(ctx) {
+        const pos = this.gameObject.transform.position
         const size = 20
         const frontAngle = this.angle
         const leftAngle  = this.angle + (2 * Math.PI / 3)
         const rightAngle = this.angle - (2 * Math.PI / 3)
 
-        const frontX = this.vertex.x + Math.cos(frontAngle) * size
-        const frontY = this.vertex.y + Math.sin(frontAngle) * size
-        const leftX  = this.vertex.x + Math.cos(leftAngle) * size
-        const leftY  = this.vertex.y + Math.sin(leftAngle) * size
-        const rightX = this.vertex.x + Math.cos(rightAngle) * size
-        const rightY = this.vertex.y + Math.sin(rightAngle) * size
+        const frontX = pos.x + Math.cos(frontAngle) * size
+        const frontY = pos.y + Math.sin(frontAngle) * size
+        const leftX  = pos.x + Math.cos(leftAngle) * size
+        const leftY  = pos.y + Math.sin(leftAngle) * size
+        const rightX = pos.x + Math.cos(rightAngle) * size
+        const rightY = pos.y + Math.sin(rightAngle) * size
 
         // Draw main triangle
         ctx.fillStyle = "yellow"
@@ -75,12 +78,12 @@ class TriangleController extends Component {
         // Draw indicator triangle
         ctx.fillStyle = "red"
         ctx.beginPath()
-        const smallFrontX = this.vertex.x + Math.cos(frontAngle) * (size * 0.6)
-        const smallFrontY = this.vertex.y + Math.sin(frontAngle) * (size * 0.6)
-        const smallLeftX  = this.vertex.x + Math.cos(leftAngle) * 5
-        const smallLeftY  = this.vertex.y + Math.sin(leftAngle) * 5
-        const smallRightX = this.vertex.x + Math.cos(rightAngle) * 5
-        const smallRightY = this.vertex.y + Math.sin(rightAngle) * 5
+        const smallFrontX = pos.x + Math.cos(frontAngle) * (size * 0.6)
+        const smallFrontY = pos.y + Math.sin(frontAngle) * (size * 0.6)
+        const smallLeftX  = pos.x + Math.cos(leftAngle) * 5
+        const smallLeftY  = pos.y + Math.sin(leftAngle) * 5
+        const smallRightX = pos.x + Math.cos(rightAngle) * 5
+        const smallRightY = pos.y + Math.sin(rightAngle) * 5
         ctx.moveTo(smallFrontX, smallFrontY)
         ctx.lineTo(smallLeftX, smallLeftY)
         ctx.lineTo(smallRightX, smallRightY)

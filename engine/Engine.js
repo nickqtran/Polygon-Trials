@@ -16,6 +16,7 @@ class Engine {
     }
 
     static gameLoop() {
+        Time.update()
         SceneManager.update()
         Engine.update()
         Engine.draw()
