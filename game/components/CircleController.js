@@ -1,3 +1,4 @@
+// not needed
 class CircleController extends Component {
     start() {
         this.vertex = new Vector2(275, 325) // center of circle

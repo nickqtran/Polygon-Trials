@@ -5,9 +5,10 @@ class StartScene extends Scene {
             StartScene.highScoreGO.transform.position = new Vector2(200, 100)
         }
 
-        // Instantiate starfield
+        // Starfield
         this.instantiate(new StarsGameObject())
-        // Instantiate High Score
+
+        // High Score
         this.instantiate(StartScene.highScoreGO)
 
         // Start Button
@@ -18,7 +19,7 @@ class StartScene extends Scene {
         textComp.text = "PLAY"
         textComp.fillStyle = "red"
 
-        // load MainScene
+        // Load MainScene
         startButton.addComponent(new ButtonComponent(() => {
             SceneManager.loadScene(new MainScene(StartScene.highScoreGO.getComponent(HighscoreController)))
         }))

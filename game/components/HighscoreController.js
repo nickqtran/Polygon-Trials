@@ -1,4 +1,5 @@
 class HighscoreController extends Component {
+    // keep highscore static across scenes
     static highScore = 0
 
     update() {

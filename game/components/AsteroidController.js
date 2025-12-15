@@ -56,7 +56,7 @@ class AsteroidController extends Component {
                     // Destroy asteroid
                     this.asteroids.splice(i, 1)
 
-                    // Destroy laser safely
+                    // Destroy laser
                     laser.destroy()
 
                     // Add to score
@@ -65,7 +65,7 @@ class AsteroidController extends Component {
                         scoreObject.getComponent(ScoreController).addPoint(1)
                     }
 
-                    break // Stop checking other lasers for this asteroid
+                    break 
                 }
             }
         }
@@ -94,9 +94,10 @@ class AsteroidController extends Component {
                         highScoreObject.getComponent(HighscoreController).checkHighScore(currentScore)
                     }
 
-                    // Reset game safely
+                    // Reset game
                     SceneManager.loadScene(new StartScene())
-                    return // Stop further asteroid processing
+                    
+                    return 
                 }
             }
         }

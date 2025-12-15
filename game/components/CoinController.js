@@ -7,7 +7,7 @@ class CoinController extends Component {
     update() {
         this.timeSinceLastSpawn += Time.deltaTime
         if (this.timeSinceLastSpawn >= this.spawnInterval) {
-            // Spawn a new coin using instantiate()
+            // Spawn a new coin
             const coin = new CoinGameObject()
             coin.transform.position = new Vector2(Math.random() * Engine.canvas.width, Math.random() * Engine.canvas.height)
 

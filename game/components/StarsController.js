@@ -2,6 +2,8 @@ class StarsController extends Component {
     constructor(numStars = 150) {
         super()
         this.stars = []
+
+        // randomly scatter "stars" across the background
         for (let i = 0; i < numStars; i++) {
             this.stars.push({
                 x: Math.random() * 600,
@@ -10,7 +12,7 @@ class StarsController extends Component {
             })
         }
     }
-
+    
     draw(ctx) {
         ctx.fillStyle = "white"
         for (let star of this.stars) {

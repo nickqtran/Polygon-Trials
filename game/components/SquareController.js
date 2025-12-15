@@ -1,3 +1,4 @@
+// not needed
 class SquareController extends Component {
     start() {
         this.vertex = new Vector2(200, 0)
