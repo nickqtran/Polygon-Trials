@@ -70,6 +70,13 @@ class AsteroidController extends Component {
             }
         }
 
+        const scoreObject = activeScene.gameObjects.find(obj => obj.name === "Score Game Object")
+        const highScoreObject = activeScene.gameObjects.find(obj => obj.name === "Highscore Game Object")
+        if (scoreObject && highScoreObject) {
+            const currentScore = scoreObject.getComponent(ScoreController).score
+            highScoreObject.getComponent(HighscoreController).checkHighScore(currentScore)
+        }
+        
         // Spaceship collision
         const spaceship = activeScene.gameObjects.find(obj => obj.name === "Spaceship Game Object")
         if (spaceship) {

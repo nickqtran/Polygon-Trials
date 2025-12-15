@@ -1,27 +1,28 @@
 class StartScene extends Scene {
-    constructor() {
-        super();
-        this.highScoreGO = new HighscoreGameObject();
-        this.startButton = new GameObject("Start Button");
-    }
-
     start() {
-        // Display High Score
-        this.highScoreGO.transform.position = new Vector2(200, 50);
-        this.instantiate(this.highScoreGO);
+        if (!StartScene.highScoreGO) {
+            StartScene.highScoreGO = new HighscoreGameObject();
+            StartScene.highScoreGO.transform.position = new Vector2(200, 100);
+        }
+
+        // Instantiate High Score
+        this.instantiate(StartScene.highScoreGO);
 
         // Start Button
-        this.startButton.transform.position = new Vector2(250, 200);
-        this.startButton.addComponent(new Text());
-        this.startButton.getComponent(Text).text = "PLAY";
-        this.startButton.getComponent(Text).fillStyle = "white";
+        const startButton = new GameObject("Start Button");
+        startButton.transform.position = new Vector2(250, 250);
+        startButton.addComponent(new Text());
+        const textComp = startButton.getComponent(Text);
+        textComp.text = "PLAY";
+        textComp.fillStyle = "white";
 
-        // Button click: load MainScene
-        this.startButton.addComponent(new ButtonComponent(() => {
-            SceneManager.loadScene(new MainScene(this.highScoreGO.getComponent(HighscoreController)));
+        // load MainScene
+        startButton.addComponent(new ButtonComponent(() => {
+            SceneManager.loadScene(new MainScene(StartScene.highScoreGO.getComponent(HighscoreController)));
         }));
 
-        this.instantiate(this.startButton);
+        this.instantiate(startButton);
     }
 }
+
 

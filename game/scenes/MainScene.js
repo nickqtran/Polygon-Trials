@@ -1,26 +1,24 @@
 class MainScene extends Scene {
-    constructor(highScoreController) {
-        super()
-        this.highScoreController = highScoreController
-    }
-
     start() {
         // Spaceship
         this.instantiate(new TriangleGameObject())
 
-        // Score
+        // Score 
         this.scoreObject = this.instantiate(new ScoreGameObject(), new Vector2(100, 30))
+
+        // High Score 
+        const highScoreGO = new HighscoreGameObject()
+        highScoreGO.transform.position = new Vector2(350, 30) // Position it on screen
+        this.instantiate(highScoreGO);
 
         // Asteroid Manager
         const asteroidManager = new GameObject()
-        const asteroidController = new AsteroidController()
-        asteroidController.highScoreController = this.highScoreController // pass reference
-        asteroidManager.addComponent(asteroidController)
-        this.gameObjects.push(asteroidManager)
+        asteroidManager.addComponent(new AsteroidController())
+        this.instantiate(asteroidManager)
 
         // Coin Manager
         const coinManager = new GameObject()
-        coinManager.addComponent(new CoinController())
-        this.gameObjects.push(coinManager)
+        coinManager.addComponent(new CoinController());
+        this.instantiate(coinManager)
     }
 }
