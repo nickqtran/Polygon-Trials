@@ -20,7 +20,7 @@ class CoinBehavior extends Component {
 
             const scoreObject = activeScene.gameObjects.find(obj => obj.name === "Score Game Object")
             if (scoreObject) {
-                scoreObject.getComponent(ScoreController).addPoint(1)
+                scoreObject.getComponent(ScoreController).addPoint(5)
             }
             
             this.gameObject.destroy()
