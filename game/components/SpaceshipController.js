@@ -49,7 +49,7 @@ class TriangleController extends Component {
         laser.transform.rotation = this.angle
 
         // Instantiate to scene
-        Engine.currentScene.instantiate(laser)
+        SceneManager.getActiveScene().instantiate(laser)
     }
 
     draw(ctx) {

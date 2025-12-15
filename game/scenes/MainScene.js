@@ -1,25 +1,26 @@
 class MainScene extends Scene {
-    constructor() {
+    constructor(highScoreController) {
         super()
-        this.gameObjects = []
+        this.highScoreController = highScoreController
+    }
 
-        //this.gameObjects.push(new TriangleGameObject())
+    start() {
+        // Spaceship
         this.instantiate(new TriangleGameObject())
+
+        // Score
         this.scoreObject = this.instantiate(new ScoreGameObject(), new Vector2(100, 30))
 
+        // Asteroid Manager
         const asteroidManager = new GameObject()
-        asteroidManager.addComponent(new AsteroidController())
+        const asteroidController = new AsteroidController()
+        asteroidController.highScoreController = this.highScoreController // pass reference
+        asteroidManager.addComponent(asteroidController)
         this.gameObjects.push(asteroidManager)
 
         // Coin Manager
         const coinManager = new GameObject()
         coinManager.addComponent(new CoinController())
-        this.gameObjects.push(coinManager)        
+        this.gameObjects.push(coinManager)
     }
 }
-
-
-
-// TO DO LIST:
-// Make collision feature (if asteroid collides with spaceship, reset game)
-// Make random "coins" randomly spawn in for extra points and disappear on a timer (create new CoinGameObject and CoinController)

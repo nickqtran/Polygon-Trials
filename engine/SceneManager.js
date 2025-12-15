@@ -4,6 +4,7 @@ class SceneManager {
     static update() {
         if(SceneManager.nextScene) {
             SceneManager.currentScene = SceneManager.nextScene
+            SceneManager.currentScene.start()
             SceneManager.nextScene = undefined
         }
     }

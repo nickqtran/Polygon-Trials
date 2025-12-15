@@ -9,9 +9,15 @@ class CoinController extends Component {
         if (this.timeSinceLastSpawn >= this.spawnInterval) {
             // Spawn a new coin using instantiate()
             const coin = new CoinGameObject()
-            coin.transform.position = new Vector2(Math.random() * 600, Math.random() * 400)
+            coin.transform.position = new Vector2(Math.random() * Engine.canvas.width, Math.random() * Engine.canvas.height)
 
-            Engine.addGameObject(coin)
+            // add coin to active scene
+            const activeScene = SceneManager.getActiveScene()
+            if (activeScene) {
+                activeScene.instantiate(coin)
+            }
+
+            // reset spawn timer
             this.timeSinceLastSpawn = 0
             this.spawnInterval = this.getRandomSpawnTime()
         }

@@ -31,9 +31,12 @@
     <script src="./engine/components/RigidBody.js"></script>
     <script src="./engine/components/Camera.js"></script>
     <script src="./engine/components/Text.js"></script>
+    <script src="./engine/components/Button.js"></script>
 
     <!-- Game-specific Code -->
     <script src="./game/scenes/MainScene.js"></script>
+    <script src="./game/scenes/StartScene.js"></script>
+
     <script src="./game/components/SpaceshipController.js"></script>
     <script src="./game/components/SquareController.js"></script>
     <script src="./game/components/CircleController.js"></script>
@@ -55,7 +58,7 @@
     
     <script>
         // Engine startup
-        Engine.currentScene = new MainScene()
+        SceneManager.currentScene = new StartScene()
         Engine.start()
     </script>
 </body>

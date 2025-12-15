@@ -15,8 +15,10 @@ class CoinBehavior extends Component {
     onCollisionEnter(other) {
         // Check if spaceship collides with a coin
         if (other.name === "Spaceship Game Object") {
-            const scoreObject = Engine.currentScene.gameObjects.find(obj => obj.name === "Score Game Object")
+            const activeScene = SceneManager.getActiveScene()
+            if (!activeScene) return
 
+            const scoreObject = activeScene.gameObjects.find(obj => obj.name === "Score Game Object")
             if (scoreObject) {
                 scoreObject.getComponent(ScoreController).addPoint(1)
             }
