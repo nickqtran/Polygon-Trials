@@ -62,7 +62,7 @@ class AsteroidController extends Component {
                     // Add to score
                     const scoreObject = activeScene.gameObjects.find(obj => obj.name === "Score Game Object")
                     if (scoreObject) {
-                        scoreObject.getComponent(ScoreController).addPoint(1)
+                        scoreObject.getComponent(ScoreController).addPoint(5)
                     }
 
                     break 
@@ -96,7 +96,7 @@ class AsteroidController extends Component {
 
                     // Reset game
                     SceneManager.loadScene(new StartScene())
-                    
+
                     return 
                 }
             }
